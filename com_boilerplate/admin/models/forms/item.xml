@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+  <fieldset name="essential">
+    <field name="id"
+      type="hidden"
+      label="JGLOBAL_FIELD_ID_LABEL"
+      description="JGLOBAL_FIELD_ID_DESC"
+      size="10"
+      default="0"
+      readonly="true"
+      class="readonly"
+    />
+
+    <field name="item"
+      type="text"
+      label="Item"
+      description="Item name"
+      class="inputbox"
+      size="30"
+      required="true"
+    />
+
+      <field name="description"
+      type="text"
+      label="Description"
+      description="Description"
+      size="30"
+      required="true"
+     />
+  </fieldset>
+</form>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This file must be named manifest.xml or <extension_name>.xml (i.e. boilerplate.xml) and located in the root directory of the installation package -->
+<!-- Attributes applicable to a Component extension
+     - type    = "component" Identifies the type of extension
+     - version = "2.5.0" Identifies the version of Joomla for which this component is developed
+     - method  = "install | upgrade" Using install it will stop installation if the application finds any file/folder of the new extension  -->
+<extension type="component" version="2.5.0" method="upgrade">
+  <!-- raw component name, must start with com_ -->
+  <name>com_boilerplate</name>
+  <!-- The following elements are optional and free of formatting constraints -->
+  <creationDate>August 2013</creationDate><!-- Date of creation or release -->
+  <author>Your name</author><!-- Author's name -->
+  <authorEmail>youremail@domain.com</authorEmail><!-- Author's email address -->
+  <authorUrl>http://www.yourwebsite.com</authorUrl><!-- URL to the author's website -->
+  <copyright>Copyright Info</copyright><!-- Copyright Statement -->
+  <license>License Info</license><!-- License statement -->
+  <!--  The version string is recorded in the components table -->
+  <version>0.0.3</version>
+  <!-- The description is optional and defaults to the name -->
+  <description>COM_BOILERPLATE_DESCRIPTION</description>
+
+  <!-- The install and unistall files must be located inside the administrator folder  -->
+  <install folder="admin"> <!-- Runs on install -->
+    <sql>
+      <file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+    </sql>
+  </install>
+
+  <uninstall folder="admin"> <!-- Runs on uninstall -->
+    <sql>
+      <file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+    </sql>
+  </uninstall>
+
+
+  <!-- Site Main File Copy Section -->
+  <!-- Note the folder attribute: This attribute describes the folder
+          to copy FROM in the package to install therefore files copied
+          in this section are copied from /site/ in the package -->
+  <files folder="site">
+    <filename>boilerplate.php</filename>
+    <filename>controller.php</filename>
+    <filename>index.html</filename>
+    <folder>language</folder>
+    <folder>models</folder>
+    <folder>views</folder>
+  </files>
+
+  <!-- Media files -->
+  <!-- This files and folders will be copied in the destination in /media/<destination>, creating the folder if required -->
+  <media folder="media" destination="com_boilerplate">
+    <filename>com_boilerplate.png</filename>
+    <folder>css</folder>
+    <folder>js</folder>
+  </media>
+  
+  <!-- Administration section -->
+  <administration>
+    <!-- Administration Menu Section -->
+    <!-- Attributes : 
+         - link    = A link to send the user to when the menu item is clicked
+         - img     = Relative path to an image (16x16 pixels) to appear beside the menu item
+         - string* = A Url parameter to add to the link. Example: view="info" . The URL would be "index.php?option=com_boilerplate&view=info" -->
+    <menu img="../media/com_boilerplate/com_boilerplate.png">COM_BOILERPLATE</menu>
+    <!-- Submenu -->
+    <submenu>
+      <menu link="">COM_BOILERPLATE_MENU_README</menu>
+    </submenu>
+    <!-- Administration Main File Copy Section -->
+    <!-- Note the folder attribute: This attribute describes the folder
+            to copy FROM in the package to install therefore files copied
+            in this section are copied from /admin/ in the package -->
+    <files folder="admin">
+      <!-- Admin Main File Copy Section -->
+      <filename>boilerplate.php</filename>
+      <filename>controller.php</filename>
+      <filename>index.html</filename>
+      <folder>controllers</folder>
+      <folder>language</folder>
+      <folder>models</folder>
+      <folder>sql</folder>
+      <folder>tables</folder>
+      <folder>views</folder>
+    </files>
+  </administration>
+
+</extension>
